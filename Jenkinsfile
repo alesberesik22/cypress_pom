@@ -30,9 +30,9 @@ pipeline{
             }
             
                 steps {
-                withCredentials([string(credentialsId: 'cypress_key', variable: 'CYPRESS_K')]) { 
-                sh "npm install"
-                sh "npx cypress run --record --key ${CYPRESS_K}"
+                    withCredentials([string(credentialsId: 'cypress_key', variable: 'CYPRESS_K')]) { 
+                    sh "npm install"
+                    sh "npx cypress run --record --key ${CYPRESS_K}"
             }
     }
             
