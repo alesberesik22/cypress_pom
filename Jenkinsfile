@@ -15,7 +15,7 @@ pipeline{
             }
             
         }
-        stage('Testing') {
+        stage('Testing normal') {
             when {
                 expression {env.RUN_TYPE =='normal'} 
             }
@@ -24,7 +24,7 @@ pipeline{
                 sh "npx cypress run --browser ${BROWSER} --spec ${SPEC}"
             }
         }
-        stage('Testing') {
+        stage('Testing dashboard') {
             when {
                 expression {env.RUN_TYPE =='dashboard'}
             }
