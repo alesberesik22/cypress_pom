@@ -3,7 +3,7 @@ pipeline{
     parameters {
         string(name: 'SPEC',defaultValue: 'cypress/e2e/**', description: 'Enter the script that you want execute')
         choice(name:"BROWSER",choices: ['chrome','edge','firefox'], description: ' Choose browser where you want to execute your scripts')
-        choice(name:'RUN_TYPE' choices:['normal', 'dashboard'], description:'Choose run type')
+        choice(name:'RUN_TYPE', choices:['normal', 'dashboard'], description:'Choose run type')
     }
     options {
         ansiColor('xterm')
