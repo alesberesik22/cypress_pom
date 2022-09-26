@@ -28,8 +28,9 @@ pipeline{
             when {
                 expression {env.RUN_TYPE =='dashboard'}
             }
-            withCredentials([string(credentialsId: 'cypress_key', variable: 'CYPRESS_K')]) { 
+            
                 steps {
+                withCredentials([string(credentialsId: 'cypress_key', variable: 'CYPRESS_K')]) { 
                 sh "npm install"
                 sh "npx cypress run --record --key ${CYPRESS_K}"
             }
