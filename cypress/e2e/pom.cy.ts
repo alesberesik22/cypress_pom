@@ -11,11 +11,4 @@ describe("Pom test", () => {
   it("Login to page", () => {
     home.login("standard_user", "secret_sauce");
   });
-  it("Lockout message", () => {
-    home.loginError("locked_out_user", "secret_sauce");
-  });
-  it("Get title after login", () => {
-    home.login("standard_user", "secret_sauce");
-    inventory.getTitle();
-  });
 });
