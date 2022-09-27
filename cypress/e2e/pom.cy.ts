@@ -17,5 +17,6 @@ describe("Pom test", () => {
   it("Get title after login", () => {
     home.login("standard_user", "secret_sauce");
     inventory.getTitle();
+    cy.url().should("contain", "inventory");
   });
 });
