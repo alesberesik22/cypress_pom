@@ -10,11 +10,6 @@ pipeline{
         ansiColor('xterm')
     }
     stages {
-        stage('Clone repository') {
-            steps {
-                checkout scm
-            }
-        }
         stage('Building') {
             steps {
                 echo "Building application"
