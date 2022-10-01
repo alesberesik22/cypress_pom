@@ -1,5 +1,4 @@
 pipeline {
-    def app
     agent any
 
     node {    
@@ -9,26 +8,12 @@ pipeline {
       }     
       stage('Build image') {         
        
-            app = docker.build("alesberesik/pomJenkins")    
+            sh 'docker build -t alesberesik/jenkins_image'   
        }     
       stage('Test image') {           
-            app.inside {            
-             
-             sh 'echo "Tests passed"'        
-            }    
+            sh 'echo test'  
         }     
        stage('Push image') {
-           if((env.VERSION_BUILD == 'latest') || (env.VERSION_BUILD == 'v1.0.2')){
-                docker.withRegistry('https://registry.hub.docker.com', 'DOCKER') {            
-                app.push("${env.BUILD_NUMBER}")            
-                app.push("latest")        
-              }
-           }else {
-                 docker.withRegistry('https://registry.hub.docker.com', 'DOCKER') {            
-                app.push("${env.BUILD_NUMBER}")            
-              }
-              }   
-
-           }
+           sh 'echo test'  
         }
 }
