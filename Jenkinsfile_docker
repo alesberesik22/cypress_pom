@@ -1,20 +1,20 @@
 pipeline {
     agent any
-
-    node {    
-      stage('Clone repository') {               
-             
-            checkout scm    
-      }     
-      stage('Build image') {         
-       
-            sh 'docker build -t alesberesik/jenkins_image'   
-       }     
-      stage('Test image') {           
-            sh 'echo test'  
-        }     
-       stage('Push image') {
-           sh 'echo test'  
+    stages {
+        stage('build') {
+            steps {
+                echo 'Hello world, this is multibranch pipeline for Dev branch'
+            }
         }
-}
-}
+        stage('test') {
+            steps {
+                echo 'testing Dev...'
+            }
+        }
+        stage('deploy') {
+            steps {
+                echo 'deploying Dev...'
+            }
+        }
+    }
+}  
