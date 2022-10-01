@@ -1,6 +1,6 @@
 node {
     checkout scm
-    sh 'printenv'
+    sh 'BRANCH_NAME'
 
 //     docker.withRegistry('https://registry.hub.docker.com', 'DOCKER') {
 
