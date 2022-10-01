@@ -2,12 +2,9 @@ pipeline {
     agent any
     stages {
         stage('build') {
-                if (env.BRANCH_NAME == '1.0.2') {
-                  sh 'git branch -a'
-                } else {
-                  echo 'Som inde'
-                }
-        }
+            steps {
+                sh 'git branch -a'
+            }
         stage('test') {
             steps {
                 echo 'testing Dev...'
