@@ -1,5 +1,6 @@
 node {
     checkout scm
+    sh 'env'
     sh 'env.BRANCH_NAME'
 
 //     docker.withRegistry('https://registry.hub.docker.com', 'DOCKER') {
