@@ -1,6 +1,6 @@
 node {
     checkout scm
-    echo 'branch' env.GIT_BRANCH
+    sh 'printenv'
 
 //     docker.withRegistry('https://registry.hub.docker.com', 'DOCKER') {
 
