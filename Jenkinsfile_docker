@@ -5,7 +5,7 @@ node {
 
     docker.withRegistry('https://registry.hub.docker.com', 'DOCKER') {
 
-        def customImage = docker.build("ales/beresik:${env.BRANCH_NAME}")
+        def customImage = docker.build("alesberesik/pom:${env.BRANCH_NAME}")
 
         /* Push the container to the custom Registry */
         customImage.push()
