@@ -1,14 +1,13 @@
 node {
     checkout scm
-    sh 'env'
-    def version = '$BRANCH_NAME'
-    sh 'echo test ${version}'
+//     sh 'env'
+//     def version = sh  $BRANCH_NAME'
 
-//     docker.withRegistry('https://registry.hub.docker.com', 'DOCKER') {
+    docker.withRegistry('https://registry.hub.docker.com', 'DOCKER') {
 
-      //   def customImage = docker.build("ales/beresik:${env.BUILD_ID}")
+        def customImage = docker.build("ales/beresik:${env.BRANCH_NAME}")
 
         /* Push the container to the custom Registry */
-      //   customImage.push()
-//     }
+        customImage.push()
+    }
 }
