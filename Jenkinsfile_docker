@@ -1,16 +1,12 @@
-pipeline {
-    agent any
-    stages {
-        stage('Build') {
-            steps {
-                sh "git branch -a"
-            }
-            }
-        }
-        stage('Building') {
-            steps {
-                echo "Building application"
-            }
-            
-        }
+node {
+    checkout scm
+    echo 'branch' env.GIT_BRANCH
+
+//     docker.withRegistry('https://registry.hub.docker.com', 'DOCKER') {
+
+      //   def customImage = docker.build("ales/beresik:${env.BUILD_ID}")
+
+        /* Push the container to the custom Registry */
+      //   customImage.push()
+//     }
 }
