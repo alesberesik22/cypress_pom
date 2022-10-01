@@ -1,0 +1,34 @@
+pipeline {
+    def app
+    agent any
+
+    node {    
+      stage('Clone repository') {               
+             
+            checkout scm    
+      }     
+      stage('Build image') {         
+       
+            app = docker.build("alesberesik/pomJenkins")    
+       }     
+      stage('Test image') {           
+            app.inside {            
+             
+             sh 'echo "Tests passed"'        
+            }    
+        }     
+       stage('Push image') {
+           if((env.VERSION_BUILD == 'latest') || (env.VERSION_BUILD == 'v1.0.2')){
+                docker.withRegistry('https://registry.hub.docker.com', 'DOCKER') {            
+                app.push("${env.BUILD_NUMBER}")            
+                app.push("latest")        
+              }
+           }else {
+                 docker.withRegistry('https://registry.hub.docker.com', 'DOCKER') {            
+                app.push("${env.BUILD_NUMBER}")            
+              }
+              }   
+
+           }
+        }
+}
