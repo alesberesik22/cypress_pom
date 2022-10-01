@@ -1,7 +1,8 @@
 node {
     checkout scm
     sh 'env'
-    sh 'echo $BRANCH_NAME'
+    def version = sh '$BRANCH_NAME'
+    sh 'echo $version'
 
 //     docker.withRegistry('https://registry.hub.docker.com', 'DOCKER') {
 
