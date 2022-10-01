@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
                 if (env.BRANCH_NAME == '1.0.2') {
-                  echo 'Som v 1.0.2'
+                  sh 'git branch -a'
                 } else {
                   echo 'Som inde'
                 }
